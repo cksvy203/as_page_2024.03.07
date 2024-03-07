@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AS 접수 페이지</title>
+    <link rel="stylesheet" href="stylesheet/main.css">
+ </head>
+<body>
+    <h1>AS 접수 페이지</h1>
+    <!-- 수리 접수 전 참고 사항 섹션 -->
+    <section id="precautions">
+        <h2>수리 접수 전 참고 사항</h2>
+        <p>고객님께서 수리 접수 전 반드시 확인해야 할 사항입니다.</p>
+        <ul>
+            <li>수리 의뢰 전 고객님의 데이터를 필히 백업해주시기 바랍니다.</li>
+            <li>제품의 모델명, 일련번호를 정확하게 기입해 주세요.</li>
+            <li>문제 발생 시의 상세한 증상을 기술해 주시면 보다 정확한 진단이 가능합니다.</li>
+            <li>제품 수리와 관련된 모든 정보를 함께 기입해 주세요.</li>
+            <li>보증 기간이 지났거나 보증이 해지된 제품의 수리는 별도의 비용이 발생할 수 있습니다.</li>
+        </ul>
+        <div id="agreement-container">
+            <input type="checkbox" id="agreement" required>
+            <label id="agreement-label" for="agreement">동의</label>
+        </div>
+    </section>
+    <form id="asForm" action="/submit" method="POST">
+        <label for="product">제품명:</label>
+        <input type="text" id="product" name="product" required><br>
+        <label for="customerName">고객명:</label>
+        <input type="text" id="customerName" name="customerName" required><br>
+        <label for="phoneNumber">전화번호:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="ex) 010-1234-5678" required><br>
+        <label for="address">주소:</label>
+        <input type="text" id="address" name="address" required><br>
+        <label for="modelName">모델명:</label>
+        <input type="text" id="modelName" name="modelName" required><br>
+        <label for="issue">증상:</label>
+        <textarea id="issue" name="issue" rows="4" required></textarea><br>
+        <button type="submit" id="submitButton">제출</button>
+    </form>
+
+    <!-- Footer -->
+    <footer>
+        <p>회사명: 컴퓨터365 대표: 박현준 전화번호: 010-9668-6243</p>
+        <p>사업자 등록번호: 123-12-12345 주소: 울산시 북구 호계 4길 10 스토리빌 1층 컴퓨터365</p>
+        <p>&copy; 2024. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript 파일 가져오기 -->
+    <script src="js/phone-number.js"></script>
+</body>
+</html>
